@@ -97,7 +97,7 @@ class RkBundleTests(unittest.TestCase):
 
     def test_relative_output_is_based_on_project_not_shell_directory(self):
         result = build_bundle(Path("out"), self.root)
-        self.assertEqual(Path(result["archive"]).parent, self.root / "out")
+        self.assertEqual(Path(result["archive"]).parent, self.root.resolve() / "out")
 
     def test_identical_inputs_produce_identical_archives(self):
         first = build_bundle(self.root / "out-one", self.root)

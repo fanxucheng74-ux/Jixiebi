@@ -24,8 +24,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class PickTests(unittest.TestCase):
     def setUp(self):
-        self.model = json.loads((ROOT / "configs/kinematics.vendor_nominal.json").read_text())
-        self.request = json.loads((ROOT / "configs/paper_pick.example.json").read_text())
+        self.model = json.loads(
+            (ROOT / "configs/kinematics.vendor_nominal.json").read_text(encoding="utf-8")
+        )
+        self.request = json.loads(
+            (ROOT / "configs/paper_pick.example.json").read_text(encoding="utf-8")
+        )
         self.start = [1491, 1497, 1503, 1496, 1533, 1508]
         self.geometry = Geometry(**self.model["geometry_mm"])
 
@@ -90,8 +94,12 @@ class PickTests(unittest.TestCase):
         self.assertGreater(report["maximum_sampled_radius_mm"], report["distance_to_centre_mm"])
 
     def test_ar_variant_keeps_user_estimate_distinct_from_verified_measurement(self):
-        model = json.loads((ROOT / "configs/kinematics.arduino_nominal.json").read_text())
-        request = json.loads((ROOT / "configs/paper_pick.user_estimate.json").read_text())
+        model = json.loads(
+            (ROOT / "configs/kinematics.arduino_nominal.json").read_text(encoding="utf-8")
+        )
+        request = json.loads(
+            (ROOT / "configs/paper_pick.user_estimate.json").read_text(encoding="utf-8")
+        )
         report = plan_paper_pick(model, request, self.start)
         self.assertEqual(model["geometry_mm"]["base_height_mm"], 100)
         self.assertEqual(report["grasp_center_task_mm"], [0, 250, 25])
@@ -182,7 +190,9 @@ class PickTests(unittest.TestCase):
             self.assertFalse(report["motion_authorized"])
 
     def test_height_only_inverse_holds_other_axes_and_reports_changed_xy(self):
-        model = json.loads((ROOT / "configs/kinematics.arduino_nominal.json").read_text())
+        model = json.loads(
+            (ROOT / "configs/kinematics.arduino_nominal.json").read_text(encoding="utf-8")
+        )
         geometry = Geometry(**model["geometry_mm"])
         reference = [1491, 1435, 1812, 1033]
         answers = shoulder_solutions_for_z(

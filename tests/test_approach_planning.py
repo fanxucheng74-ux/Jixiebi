@@ -28,8 +28,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class ApproachTests(unittest.TestCase):
     def setUp(self):
-        self.model = json.loads((ROOT / "configs/kinematics.vendor_nominal.json").read_text())
-        self.spec = json.loads((ROOT / "configs/approach.example.json").read_text())
+        self.model = json.loads(
+            (ROOT / "configs/kinematics.vendor_nominal.json").read_text(encoding="utf-8")
+        )
+        self.spec = json.loads((ROOT / "configs/approach.example.json").read_text(encoding="utf-8"))
         self.geometry = Geometry(**self.model["geometry_mm"])
         self.start = [1507, 1506, 1495, 1495]
         self.folder = ROOT / ("_approach_tests_" + uuid4().hex)
@@ -204,7 +206,7 @@ class ApproachTests(unittest.TestCase):
         ):
             self.assertEqual(main(["--pose-file", str(path), "--output", str(output)]), 0)
         opened.assert_not_called()
-        report = json.loads(output.read_text())
+        report = json.loads(output.read_text(encoding="utf-8"))
         self.assertEqual(set(report["input_sha256"]), {"pose", "model", "spec"})
         self.assertTrue(all(len(h) == 64 for h in report["input_sha256"].values()))
         self.assertFalse(report["motion_authorized"])
@@ -215,7 +217,7 @@ class ApproachTests(unittest.TestCase):
         output.write_text("preserve", encoding="utf-8")
         with redirect_stdout(StringIO()):
             self.assertEqual(main(["--pose-file", str(path), "--output", str(output)]), 1)
-        self.assertEqual(output.read_text(), "preserve")
+        self.assertEqual(output.read_text(encoding="utf-8"), "preserve")
 
 
 if __name__ == "__main__":

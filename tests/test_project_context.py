@@ -1,6 +1,7 @@
 """Read-only retrieval checks use small text fixtures and no project imports."""
 
 import hashlib
+import os
 from pathlib import Path
 import tempfile
 import unittest
@@ -84,10 +85,24 @@ class ProjectContextTests(unittest.TestCase):
             original = project_context._is_link
             with patch(
                 "tools.project_context._is_link",
-                side_effect=lambda path: path == source or original(path),
+                side_effect=lambda path: os.path.samefile(path, source) or original(path),
             ):
                 with self.assertRaisesRegex(ValueError, "linked project source"):
                     build_context(root, "PRAD")
+
+    def test_actual_linked_source_is_rejected_before_reading(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = put(root, "src/arm_project/servo_protocol.py", "# original\n")
+            outside = root / "outside.py"
+            outside.write_text("# PRAD secret\n", encoding="utf-8")
+            source.unlink()
+            try:
+                source.symlink_to(outside)
+            except OSError as error:
+                self.skipTest(f"creating an actual symlink is unavailable: {error}")
+            with self.assertRaisesRegex(ValueError, "linked project source"):
+                build_context(root, "PRAD")
 
     def test_scope_is_never_shortened_to_fit_a_small_budget(self):
         with tempfile.TemporaryDirectory() as directory:

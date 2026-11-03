@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+import os
 from pathlib import Path
 import tempfile
 import unittest
@@ -241,10 +242,28 @@ class AdapterEvaluationInputTests(unittest.TestCase):
             # Windows requires an unrelated privilege to create actual symlinks.
             # Simulate the filesystem flag while exercising the real path gate.
             with patch.object(
-                Path, "is_symlink", autospec=True, side_effect=lambda path: path == original
+                Path,
+                "is_symlink",
+                autospec=True,
+                side_effect=lambda path: os.path.samefile(path, original),
             ):
                 with self.assertRaisesRegex(ValueError, "linked"):
                     self.verify_fixture(run, data)
+
+    def test_actual_linked_checkpoint_file_is_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            run, data, checkpoint, _, _, _ = fixture(root)
+            original = checkpoint / "adapter_model.safetensors"
+            outside = root / "outside.safetensors"
+            outside.write_bytes(original.read_bytes())
+            original.unlink()
+            try:
+                original.symlink_to(outside)
+            except OSError as error:
+                self.skipTest(f"creating an actual symlink is unavailable: {error}")
+            with self.assertRaisesRegex(ValueError, "linked"):
+                self.verify_fixture(run, data)
 
 
 if __name__ == "__main__":
