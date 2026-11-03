@@ -1,0 +1,22 @@
+{
+  "distance_reference": "RADIAL_FROM_BASE",
+  "distance_mm": 200,
+  "left_yaw_deg": -45,
+  "right_yaw_deg": 45,
+  "block_footprint_xy_mm": [25, 25],
+  "block_height_mm": 25,
+  "tip_to_grasp_mm": 0,
+  "table_z_mm": 0,
+  "approach_clearance_mm": 50,
+  "cycle_count": 5,
+  "stage_times_ms": {
+    "descend_pick": 1500,
+    "close": 1000,
+    "lift_pick": 1500,
+    "rotate_to_place": 1500,
+    "descend_place": 1500,
+    "open": 1000,
+    "lift_place": 1500,
+    "rotate_to_pick": 1500
+  }
+}

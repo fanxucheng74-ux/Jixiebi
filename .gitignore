@@ -30,5 +30,6 @@ data/datasets/
 !.env.example
 wifi_config.py
 *.local.json
+*.site.json
 *.pem
 *.key

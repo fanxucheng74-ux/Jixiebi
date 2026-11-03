@@ -1,0 +1,11 @@
+{
+  "schema": "jixiebi.transfer_task_config.v1",
+  "task_id": "general_entry_task_20261103_01",
+  "model_path": "configs/kinematics.arduino_nominal.json",
+  "request_path": "configs/transfer_task_request.example.json",
+  "policy_path": "configs/transfer_entry_policy.example.json",
+  "entry_planner_path": "configs/general_entry_planner.example.json",
+  "scene_path": "configs/motion_scene.example.json",
+  "gripper": {"open_p": 1200, "close_p": 1570, "duration_ms": 1000},
+  "reviews": {"ALREADY_AT_START": null, "NOMINAL_ENTRY_PROPOSAL": null}
+}

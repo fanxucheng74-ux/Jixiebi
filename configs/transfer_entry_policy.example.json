@@ -1,0 +1,10 @@
+{
+  "max_age_s": 3.0,
+  "at_start_tolerance_p": 5,
+  "high_pose_tolerance_p": 8,
+  "minimum_tip_height_above_table_mm": 50.0,
+  "minimum_centerline_height_mm": 5.0,
+  "maximum_radial_mm": 400.0,
+  "duration_ms": 3000,
+  "max_joint_delta_p": 900
+}

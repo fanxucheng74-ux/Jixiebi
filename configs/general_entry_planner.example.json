@@ -1,0 +1,15 @@
+{
+  "schema": "jixiebi.general_entry_planner.v1",
+  "step_p": 120,
+  "resolution_p": 5,
+  "max_iterations": 1200,
+  "max_nodes": 2500,
+  "time_budget_s": 1.5,
+  "seed": 7,
+  "max_segments": 8,
+  "maximum_velocity_p_s": [200, 200, 200, 200],
+  "maximum_acceleration_p_s2": [400, 400, 400, 400],
+  "maximum_jerk_p_s3": [1600, 1600, 1600, 1600],
+  "minimum_segment_ms": 1500,
+  "maximum_segment_ms": 9000
+}

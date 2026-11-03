@@ -346,6 +346,10 @@ class CycleController(JointProbeController):
                     raise ValueError("ordered unchanged setpoint exceeded tracking corridor")
             elif abs(p - starts[sid]) > 10:
                 raise ValueError("held axis drift exceeded10P")
+        self.guard_geometry(positions)
+
+    def guard_geometry(self, positions):
+        # 默认保留原序列的几何规则；通用入口任务可使用与规划一致的场景检查器。
         # 仅000..003参与四轴名义几何；005夹爪反馈不代表已经夹住物体。
         points = chain_points(self.spec.geometry, positions[:4])
         q = from_nominal_pulses(positions[:4])
@@ -391,6 +395,10 @@ class CycleController(JointProbeController):
             result["stops"].append(item)
             self.link.record_best_effort("cycle_stop_attempt", **item)
         self.link.faulted = True
+
+    def check_completion(self):
+        """Allow task-specific completion conditions before success is recorded."""
+        pass
 
     def run(self):
         # 一个控制器只消费一趟序列，已故障或日志不完整时不能继续靠旧状态运行。
@@ -479,6 +487,10 @@ class CycleController(JointProbeController):
                 for command in phase.commands:
                     self._check_cancel()
                     self.link.send_motion(command)
+                # 每条轴目标的T从实际发送后才开始生效；日志、调度和前面轴的发送
+                # 都可能耗时。以最后一条目标写完为保守等待基准，防止尚未给足T
+                # 就读取端点并误停；phase_start仍保留整段实际耗时，总期限不后移。
+                motion_wait_start = self.link.clock.monotonic()
                 for sid, target, tolerance in phase.targets:
                     ordered_targets[sid] = target
                     tracking_limits[sid] = tolerance
@@ -497,20 +509,25 @@ class CycleController(JointProbeController):
                 duration = phase.duration_ms / 1000
                 # due是相对本段起点的秒数；按绝对截止时刻等待，减少每轮sleep叠加漂移。
                 while due <= duration - 0.4 + 1e-9:
-                    self._wait(max(0, phase_start + due - self.link.clock.monotonic()))
+                    self._wait(max(0, motion_wait_start + due - self.link.clock.monotonic()))
                     state = reader.read_state()
+                    self._check_cancel()
                     current = self.positions(state)
                     self.guard(current, starts, moving, holds)
                     row["samples"].append(state)
                     self.link.record("cycle_sample", phase=phase.name, state=state)
                     due += 0.5
+                    # 慢查询跨过多个采样点时跳过已过期的时刻，避免追赶旧采样
+                    # 延误阶段交接；仍通过guard/_wait和每次真实write核对总期限。
+                    elapsed = self.link.clock.monotonic() - motion_wait_start
+                    due = max(due, (math.floor((elapsed + 1e-9) / 0.5) + 1) * 0.5)
                 # A reviewed dwell belongs to this motion phase. Read active
                 # endpoints AFTER it, so the next phase's held-axis baseline
                 # includes the prior command's settling instead of stale P.
                 self._wait(
                     max(
                         0,
-                        phase_start
+                        motion_wait_start
                         + duration
                         + phase.dwell_ms / 1000
                         - self.link.clock.monotonic(),
@@ -567,6 +584,7 @@ class CycleController(JointProbeController):
             result["final_tracking_errors_p"] = {
                 str(s): final[s] - p for s, p in ordered_targets.items()
             }
+            self.check_completion()
             result.update(status="RESPONSE_SEQUENCE_COMPLETED", response_pass=True)
         except (Exception, KeyboardInterrupt) as error:
             # 是否尝试过运动决定失败标签；任何错误都不会从当前阶段自动重试。
