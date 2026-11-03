@@ -1,0 +1,13 @@
+{
+  "time": "2024-01-01T00:00:06.278000+00:00",
+  "kind": "MOTION",
+  "plan_index": 2,
+  "execution_id": "unified_interface_20261031_01",
+  "step_id": "04:move_joint",
+  "spec": {
+    "servo_id": 4,
+    "target_p": 1490,
+    "duration_ms": 1500
+  },
+  "command": "#004P1490T1500!"
+}

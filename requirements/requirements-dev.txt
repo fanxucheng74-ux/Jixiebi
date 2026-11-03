@@ -1,0 +1,4 @@
+setuptools==84.2.1
+wheel==0.48.0
+ruff==0.17.3
+packaging==26.3

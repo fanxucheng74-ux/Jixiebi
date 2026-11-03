@@ -1,0 +1,53 @@
+{
+  "description": "SYNTHETIC TEST FIXTURE; no device I/O",
+  "exchanges": [
+    {
+      "command": "#000PRAD!",
+      "rx_hex": [
+        "23",
+        "303030503135303021"
+      ],
+      "expected_p": 1500
+    },
+    {
+      "command": "#001PRAD!",
+      "rx_hex": [
+        "23",
+        "303031503135303121"
+      ],
+      "expected_p": 1501
+    },
+    {
+      "command": "#002PRAD!",
+      "rx_hex": [
+        "23",
+        "303032503135303221"
+      ],
+      "expected_p": 1502
+    },
+    {
+      "command": "#003PRAD!",
+      "rx_hex": [
+        "23",
+        "303033503135303321"
+      ],
+      "expected_p": 1503
+    },
+    {
+      "command": "#004PRAD!",
+      "rx_hex": [
+        "23",
+        "303034503135303421"
+      ],
+      "expected_p": 1504
+    },
+    {
+      "command": "#005PRAD!",
+      "rx_hex": [
+        "23",
+        "303035503135303521"
+      ],
+      "expected_p": 1505
+    }
+  ]
+}

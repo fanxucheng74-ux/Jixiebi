@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "base_front_edge_offset_mm": 50,
+  "base_edge_source": "ASSUMED_DEMO",
+  "outside_edge_distance_mm": 100,
+  "distance_reference": "BASE_EDGE_TO_OBJECT_CENTER",
+  "object_radius_mm": 25,
+  "measured_home_tip_height_mm": null,
+  "tip_to_grasp_offset_mm": 0,
+  "tcp_offset_source": "ASSUMED_DEMO",
+  "approach_clearance_mm": 60,
+  "jaw_opening_margin_mm": 6,
+  "duration_ms": 8000
+}

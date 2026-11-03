@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "description": "SYNTHETIC TEST DATA ONLY",
+  "steps": [
+    {
+      "kind": "read_state"
+    },
+    {
+      "kind": "capture_pose",
+      "name": "sim_a"
+    },
+    {
+      "kind": "move_joint",
+      "servo_id": 4,
+      "target_p": 1540,
+      "duration_ms": 1500
+    },
+    {
+      "kind": "capture_pose",
+      "name": "sim_b"
+    },
+    {
+      "kind": "move_joint",
+      "servo_id": 4,
+      "target_p": 1490,
+      "duration_ms": 1500
+    },
+    {
+      "kind": "grip",
+      "action": "open"
+    },
+    {
+      "kind": "grip",
+      "action": "close"
+    },
+    {
+      "kind": "capture_pose",
+      "name": "sim_c"
+    },
+    {
+      "kind": "read_state"
+    }
+  ]
+}

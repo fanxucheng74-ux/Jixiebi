@@ -1,0 +1,273 @@
+{
+  "schema_version": 1,
+  "review_id": "SIM_ONLY_empty_pick_place_01",
+  "whole_path_reviewed_for_motion": false,
+  "evidence": "SIMULATION TEST FIXTURE: no physical path review or motion authorization.",
+  "start_intervals_p": [
+    [
+      1490,
+      1515
+    ],
+    [
+      1480,
+      1510
+    ],
+    [
+      1485,
+      1530
+    ],
+    [
+      1480,
+      1520
+    ],
+    [
+      1525,
+      1545
+    ],
+    [
+      1188,
+      1245
+    ]
+  ],
+  "observation_bounds_p": [
+    [
+      1480,
+      1520
+    ],
+    [
+      1110,
+      1525
+    ],
+    [
+      1460,
+      1840
+    ],
+    [
+      1000,
+      2050
+    ],
+    [
+      1510,
+      1555
+    ],
+    [
+      1180,
+      1600
+    ]
+  ],
+  "phases": [
+    {
+      "name": "pickup_approach",
+      "duration_ms": 1500,
+      "dwell_ms": 0,
+      "targets": [
+        {
+          "servo_id": 1,
+          "target_p": 1152,
+          "end_tolerance_p": 20
+        },
+        {
+          "servo_id": 2,
+          "target_p": 1805,
+          "end_tolerance_p": 35
+        },
+        {
+          "servo_id": 3,
+          "target_p": 1995,
+          "end_tolerance_p": 35
+        }
+      ]
+    },
+    {
+      "name": "pickup_descend",
+      "duration_ms": 1500,
+      "dwell_ms": 100,
+      "targets": [
+        {
+          "servo_id": 3,
+          "target_p": 1050,
+          "end_tolerance_p": 35
+        }
+      ]
+    },
+    {
+      "name": "pickup_close",
+      "duration_ms": 1500,
+      "dwell_ms": 0,
+      "targets": [
+        {
+          "servo_id": 5,
+          "target_p": 1570,
+          "end_tolerance_p": 80
+        }
+      ]
+    },
+    {
+      "name": "pickup_raise_wrist",
+      "duration_ms": 1500,
+      "dwell_ms": 200,
+      "targets": [
+        {
+          "servo_id": 3,
+          "target_p": 1995,
+          "end_tolerance_p": 60
+        }
+      ]
+    },
+    {
+      "name": "pickup_retract",
+      "duration_ms": 1500,
+      "dwell_ms": 0,
+      "targets": [
+        {
+          "servo_id": 2,
+          "target_p": 1503,
+          "end_tolerance_p": 20
+        },
+        {
+          "servo_id": 3,
+          "target_p": 1995,
+          "end_tolerance_p": 20
+        }
+      ],
+      "hold_tracking_p": {
+        "3": 60
+      }
+    },
+    {
+      "name": "pickup_home",
+      "duration_ms": 1500,
+      "dwell_ms": 150,
+      "targets": [
+        {
+          "servo_id": 1,
+          "target_p": 1497,
+          "end_tolerance_p": 20
+        },
+        {
+          "servo_id": 2,
+          "target_p": 1503,
+          "end_tolerance_p": 20
+        },
+        {
+          "servo_id": 3,
+          "target_p": 1496,
+          "end_tolerance_p": 20
+        }
+      ],
+      "hold_tracking_p": {
+        "2": 20
+      }
+    },
+    {
+      "name": "place_approach",
+      "duration_ms": 1500,
+      "dwell_ms": 0,
+      "targets": [
+        {
+          "servo_id": 1,
+          "target_p": 1152,
+          "end_tolerance_p": 20
+        },
+        {
+          "servo_id": 2,
+          "target_p": 1805,
+          "end_tolerance_p": 35
+        },
+        {
+          "servo_id": 3,
+          "target_p": 1995,
+          "end_tolerance_p": 35
+        }
+      ]
+    },
+    {
+      "name": "place_descend",
+      "duration_ms": 1500,
+      "dwell_ms": 100,
+      "targets": [
+        {
+          "servo_id": 3,
+          "target_p": 1050,
+          "end_tolerance_p": 35
+        }
+      ]
+    },
+    {
+      "name": "place_release",
+      "duration_ms": 1500,
+      "dwell_ms": 100,
+      "targets": [
+        {
+          "servo_id": 5,
+          "target_p": 1200,
+          "end_tolerance_p": 35
+        }
+      ]
+    },
+    {
+      "name": "place_raise_wrist",
+      "duration_ms": 1500,
+      "dwell_ms": 200,
+      "targets": [
+        {
+          "servo_id": 3,
+          "target_p": 1995,
+          "end_tolerance_p": 60
+        }
+      ]
+    },
+    {
+      "name": "place_retract",
+      "duration_ms": 1500,
+      "dwell_ms": 0,
+      "targets": [
+        {
+          "servo_id": 2,
+          "target_p": 1503,
+          "end_tolerance_p": 20
+        },
+        {
+          "servo_id": 3,
+          "target_p": 1995,
+          "end_tolerance_p": 20
+        }
+      ],
+      "hold_tracking_p": {
+        "3": 60
+      }
+    },
+    {
+      "name": "place_home",
+      "duration_ms": 1500,
+      "dwell_ms": 150,
+      "targets": [
+        {
+          "servo_id": 1,
+          "target_p": 1497,
+          "end_tolerance_p": 20
+        },
+        {
+          "servo_id": 2,
+          "target_p": 1503,
+          "end_tolerance_p": 20
+        },
+        {
+          "servo_id": 3,
+          "target_p": 1496,
+          "end_tolerance_p": 20
+        }
+      ],
+      "hold_tracking_p": {
+        "2": 20
+      }
+    }
+  ],
+  "deadline_ms": 20000,
+  "geometry_mm": {
+    "base_height_mm": 100,
+    "upper_arm_mm": 105,
+    "forearm_mm": 75,
+    "tool_mm": 180
+  }
+}

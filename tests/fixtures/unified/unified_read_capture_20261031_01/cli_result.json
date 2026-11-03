@@ -1,0 +1,128 @@
+{
+  "source": "HARDWARE",
+  "run_id": "unified_read_capture_20261031_01",
+  "steps": [
+    {
+      "step": {
+        "kind": "read_state"
+      },
+      "result": {
+        "source": "HARDWARE",
+        "status": "OK",
+        "started_at": "2024-01-01T00:00:00.100000+00:00",
+        "position_unit": "protocol_P",
+        "simultaneous": false,
+        "timestamp_origin": "host_receive",
+        "servos": [
+          {
+            "servo_id": 0,
+            "status": "OK",
+            "position_p": 1506,
+            "received_at": "2024-01-01T00:00:00.102000+00:00",
+            "received_monotonic_s": 0.10200000000000001,
+            "age_ms_at_finish": 260.0
+          },
+          {
+            "servo_id": 1,
+            "status": "OK",
+            "position_p": 1501,
+            "received_at": "2024-01-01T00:00:00.154000+00:00",
+            "received_monotonic_s": 0.15400000000000003,
+            "age_ms_at_finish": 208.0
+          },
+          {
+            "servo_id": 2,
+            "status": "OK",
+            "position_p": 1493,
+            "received_at": "2024-01-01T00:00:00.206000+00:00",
+            "received_monotonic_s": 0.20600000000000002,
+            "age_ms_at_finish": 156.0
+          },
+          {
+            "servo_id": 3,
+            "status": "OK",
+            "position_p": 1493,
+            "received_at": "2024-01-01T00:00:00.258000+00:00",
+            "received_monotonic_s": 0.258,
+            "age_ms_at_finish": 104.0
+          },
+          {
+            "servo_id": 4,
+            "status": "OK",
+            "position_p": 1490,
+            "received_at": "2024-01-01T00:00:00.310000+00:00",
+            "received_monotonic_s": 0.31,
+            "age_ms_at_finish": 52.0
+          },
+          {
+            "servo_id": 5,
+            "status": "OK",
+            "position_p": 1514,
+            "received_at": "2024-01-01T00:00:00.362000+00:00",
+            "received_monotonic_s": 0.362,
+            "age_ms_at_finish": 0.0
+          }
+        ],
+        "error": null,
+        "finished_at": "2024-01-01T00:00:00.362000+00:00",
+        "finished_monotonic_s": 0.362,
+        "duration_ms": 262.0
+      }
+    },
+    {
+      "step": {
+        "kind": "capture_pose",
+        "name": "sim_initial"
+      },
+      "result": {
+        "name": "sim_initial",
+        "positions_p": [
+          1506,
+          1501,
+          1493,
+          1493,
+          1490,
+          1514
+        ],
+        "source": "HARDWARE",
+        "captured_at": "2024-01-01T00:00:01.348000+00:00",
+        "verified": false
+      }
+    }
+  ],
+  "poses": [
+    {
+      "name": "sim_initial",
+      "positions_p": [
+        1506,
+        1501,
+        1493,
+        1493,
+        1490,
+        1514
+      ],
+      "source": "HARDWARE",
+      "captured_at": "2024-01-01T00:00:01.348000+00:00",
+      "verified": false
+    }
+  ],
+  "error": null,
+  "grasp_verified": false,
+  "physical_task_verified": false,
+  "driver": {
+    "source": "HARDWARE",
+    "entered": true,
+    "closed": true,
+    "faulted": false,
+    "cancel_requested": false,
+    "planned_count": 0,
+    "consumed_count": 0,
+    "remaining_count": 0,
+    "motion_attempts": 0,
+    "response_observation_s": 0.0,
+    "response_poll_interval_s": 0.1,
+    "logging_errors": [],
+    "physical_stop_verified": false
+  },
+  "closed": true
+}

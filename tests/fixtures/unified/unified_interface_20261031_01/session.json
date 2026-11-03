@@ -1,0 +1,447 @@
+{
+  "source": "HARDWARE",
+  "entered": true,
+  "closed": true,
+  "faulted": false,
+  "cancel_requested": false,
+  "planned_count": 4,
+  "consumed_count": 4,
+  "remaining_count": 0,
+  "motion_attempts": 4,
+  "response_observation_s": 0.0,
+  "response_poll_interval_s": 0.1,
+  "logging_errors": [],
+  "physical_stop_verified": false,
+  "planned_moves": [
+    {
+      "servo_id": 4,
+      "target_p": 1540,
+      "duration_ms": 1500
+    },
+    {
+      "servo_id": 4,
+      "target_p": 1490,
+      "duration_ms": 1500
+    },
+    {
+      "servo_id": 5,
+      "target_p": 1480,
+      "duration_ms": 1000
+    },
+    {
+      "servo_id": 5,
+      "target_p": 1570,
+      "duration_ms": 1000
+    }
+  ],
+  "actions": [
+    {
+      "source": "HARDWARE",
+      "execution_id": "unified_interface_20261031_01",
+      "step_id": "02:move_joint",
+      "servo_id": 4,
+      "target_p": 1540,
+      "duration_ms": 1500,
+      "status": "RESPONSE_OBSERVED",
+      "response_pass": true,
+      "position_reached": false,
+      "motion_attempted": true,
+      "motion_write_complete": true,
+      "physical_stop_verified": false,
+      "start_samples": [
+        {
+          "value": 1490,
+          "received_at": "2024-01-01T00:00:01.554000+00:00",
+          "received_monotonic_s": 1.5539999999999987
+        },
+        {
+          "value": 1490,
+          "received_at": "2024-01-01T00:00:01.656000+00:00",
+          "received_monotonic_s": 1.6559999999999986
+        },
+        {
+          "value": 1490,
+          "received_at": "2024-01-01T00:00:01.758000+00:00",
+          "received_monotonic_s": 1.7579999999999985
+        }
+      ],
+      "feedback": [
+        {
+          "value": 1533,
+          "received_at": "2024-01-01T00:00:03.660000+00:00",
+          "received_monotonic_s": 3.6599999999999984
+        },
+        {
+          "value": 1533,
+          "received_at": "2024-01-01T00:00:03.762000+00:00",
+          "received_monotonic_s": 3.7619999999999982
+        },
+        {
+          "value": 1533,
+          "received_at": "2024-01-01T00:00:03.864000+00:00",
+          "received_monotonic_s": 3.863999999999998
+        },
+        {
+          "value": 1533,
+          "received_at": "2024-01-01T00:00:03.966000+00:00",
+          "received_monotonic_s": 3.965999999999998
+        },
+        {
+          "value": 1533,
+          "received_at": "2024-01-01T00:00:04.068000+00:00",
+          "received_monotonic_s": 4.067999999999999
+        },
+        {
+          "value": 1533,
+          "received_at": "2024-01-01T00:00:04.170000+00:00",
+          "received_monotonic_s": 4.169999999999999
+        },
+        {
+          "value": 1533,
+          "received_at": "2024-01-01T00:00:04.272000+00:00",
+          "received_monotonic_s": 4.271999999999999
+        },
+        {
+          "value": 1533,
+          "received_at": "2024-01-01T00:00:04.374000+00:00",
+          "received_monotonic_s": 4.374
+        },
+        {
+          "value": 1533,
+          "received_at": "2024-01-01T00:00:04.476000+00:00",
+          "received_monotonic_s": 4.476
+        },
+        {
+          "value": 1533,
+          "received_at": "2024-01-01T00:00:04.578000+00:00",
+          "received_monotonic_s": 4.578
+        },
+        {
+          "value": 1533,
+          "received_at": "2024-01-01T00:00:04.680000+00:00",
+          "received_monotonic_s": 4.680000000000001
+        }
+      ],
+      "error": null,
+      "start_p": 1490,
+      "motion_write_monotonic_s": 1.8579999999999985,
+      "final_p": 1533,
+      "error_p": 7,
+      "final_verification": {
+        "value": 1533,
+        "received_at": "2024-01-01T00:00:04.782000+00:00",
+        "received_monotonic_s": 4.782000000000001
+      },
+      "observed_delta_p": 43,
+      "tail_span_p": 0
+    },
+    {
+      "source": "HARDWARE",
+      "execution_id": "unified_interface_20261031_01",
+      "step_id": "04:move_joint",
+      "servo_id": 4,
+      "target_p": 1490,
+      "duration_ms": 1500,
+      "status": "RESPONSE_OBSERVED",
+      "response_pass": true,
+      "position_reached": false,
+      "motion_attempted": true,
+      "motion_write_complete": true,
+      "physical_stop_verified": false,
+      "start_samples": [
+        {
+          "value": 1533,
+          "received_at": "2024-01-01T00:00:05.974000+00:00",
+          "received_monotonic_s": 5.974000000000011
+        },
+        {
+          "value": 1533,
+          "received_at": "2024-01-01T00:00:06.076000+00:00",
+          "received_monotonic_s": 6.076000000000011
+        },
+        {
+          "value": 1533,
+          "received_at": "2024-01-01T00:00:06.178000+00:00",
+          "received_monotonic_s": 6.1780000000000115
+        }
+      ],
+      "feedback": [
+        {
+          "value": 1495,
+          "received_at": "2024-01-01T00:00:08.080000+00:00",
+          "received_monotonic_s": 8.08000000000001
+        },
+        {
+          "value": 1495,
+          "received_at": "2024-01-01T00:00:08.182000+00:00",
+          "received_monotonic_s": 8.18200000000001
+        },
+        {
+          "value": 1495,
+          "received_at": "2024-01-01T00:00:08.284000+00:00",
+          "received_monotonic_s": 8.284000000000008
+        },
+        {
+          "value": 1495,
+          "received_at": "2024-01-01T00:00:08.386000+00:00",
+          "received_monotonic_s": 8.386000000000006
+        },
+        {
+          "value": 1495,
+          "received_at": "2024-01-01T00:00:08.488000+00:00",
+          "received_monotonic_s": 8.488000000000005
+        },
+        {
+          "value": 1495,
+          "received_at": "2024-01-01T00:00:08.590000+00:00",
+          "received_monotonic_s": 8.590000000000003
+        },
+        {
+          "value": 1495,
+          "received_at": "2024-01-01T00:00:08.692000+00:00",
+          "received_monotonic_s": 8.692000000000002
+        },
+        {
+          "value": 1495,
+          "received_at": "2024-01-01T00:00:08.794000+00:00",
+          "received_monotonic_s": 8.794
+        },
+        {
+          "value": 1495,
+          "received_at": "2024-01-01T00:00:08.896000+00:00",
+          "received_monotonic_s": 8.895999999999999
+        },
+        {
+          "value": 1495,
+          "received_at": "2024-01-01T00:00:08.998000+00:00",
+          "received_monotonic_s": 8.997999999999998
+        },
+        {
+          "value": 1495,
+          "received_at": "2024-01-01T00:00:09.100000+00:00",
+          "received_monotonic_s": 9.099999999999996
+        }
+      ],
+      "error": null,
+      "start_p": 1533,
+      "motion_write_monotonic_s": 6.278000000000011,
+      "final_p": 1495,
+      "error_p": -5,
+      "final_verification": {
+        "value": 1495,
+        "received_at": "2024-01-01T00:00:09.202000+00:00",
+        "received_monotonic_s": 9.201999999999995
+      },
+      "observed_delta_p": -38,
+      "tail_span_p": 0
+    },
+    {
+      "source": "HARDWARE",
+      "execution_id": "unified_interface_20261031_01",
+      "step_id": "05:grip",
+      "servo_id": 5,
+      "target_p": 1480,
+      "duration_ms": 1000,
+      "status": "RESPONSE_OBSERVED",
+      "response_pass": true,
+      "position_reached": false,
+      "motion_attempted": true,
+      "motion_write_complete": true,
+      "physical_stop_verified": false,
+      "start_samples": [
+        {
+          "value": 1514,
+          "received_at": "2024-01-01T00:00:09.408000+00:00",
+          "received_monotonic_s": 9.40799999999999
+        },
+        {
+          "value": 1514,
+          "received_at": "2024-01-01T00:00:09.510000+00:00",
+          "received_monotonic_s": 9.50999999999999
+        },
+        {
+          "value": 1514,
+          "received_at": "2024-01-01T00:00:09.612000+00:00",
+          "received_monotonic_s": 9.611999999999988
+        }
+      ],
+      "feedback": [
+        {
+          "value": 1497,
+          "received_at": "2024-01-01T00:00:11.014000+00:00",
+          "received_monotonic_s": 11.013999999999987
+        },
+        {
+          "value": 1497,
+          "received_at": "2024-01-01T00:00:11.116000+00:00",
+          "received_monotonic_s": 11.115999999999985
+        },
+        {
+          "value": 1497,
+          "received_at": "2024-01-01T00:00:11.218000+00:00",
+          "received_monotonic_s": 11.217999999999984
+        },
+        {
+          "value": 1497,
+          "received_at": "2024-01-01T00:00:11.320000+00:00",
+          "received_monotonic_s": 11.319999999999983
+        },
+        {
+          "value": 1497,
+          "received_at": "2024-01-01T00:00:11.422000+00:00",
+          "received_monotonic_s": 11.421999999999981
+        },
+        {
+          "value": 1497,
+          "received_at": "2024-01-01T00:00:11.524000+00:00",
+          "received_monotonic_s": 11.52399999999998
+        },
+        {
+          "value": 1497,
+          "received_at": "2024-01-01T00:00:11.626000+00:00",
+          "received_monotonic_s": 11.625999999999978
+        },
+        {
+          "value": 1497,
+          "received_at": "2024-01-01T00:00:11.728000+00:00",
+          "received_monotonic_s": 11.727999999999977
+        },
+        {
+          "value": 1497,
+          "received_at": "2024-01-01T00:00:11.830000+00:00",
+          "received_monotonic_s": 11.829999999999975
+        },
+        {
+          "value": 1497,
+          "received_at": "2024-01-01T00:00:11.932000+00:00",
+          "received_monotonic_s": 11.931999999999974
+        },
+        {
+          "value": 1497,
+          "received_at": "2024-01-01T00:00:12.034000+00:00",
+          "received_monotonic_s": 12.033999999999972
+        }
+      ],
+      "error": null,
+      "start_p": 1514,
+      "motion_write_monotonic_s": 9.711999999999987,
+      "final_p": 1497,
+      "error_p": -17,
+      "final_verification": {
+        "value": 1497,
+        "received_at": "2024-01-01T00:00:12.136000+00:00",
+        "received_monotonic_s": 12.13599999999997
+      },
+      "observed_delta_p": -17,
+      "tail_span_p": 0,
+      "grip_action": "open",
+      "object_grasped": false,
+      "grasp_verified": false,
+      "meaning": "local gripper response only; load and grasp not inferred"
+    },
+    {
+      "source": "HARDWARE",
+      "execution_id": "unified_interface_20261031_01",
+      "step_id": "06:grip",
+      "servo_id": 5,
+      "target_p": 1570,
+      "duration_ms": 1000,
+      "status": "RESPONSE_OBSERVED",
+      "response_pass": true,
+      "position_reached": false,
+      "motion_attempted": true,
+      "motion_write_complete": true,
+      "physical_stop_verified": false,
+      "start_samples": [
+        {
+          "value": 1497,
+          "received_at": "2024-01-01T00:00:12.342000+00:00",
+          "received_monotonic_s": 12.341999999999967
+        },
+        {
+          "value": 1497,
+          "received_at": "2024-01-01T00:00:12.444000+00:00",
+          "received_monotonic_s": 12.443999999999965
+        },
+        {
+          "value": 1497,
+          "received_at": "2024-01-01T00:00:12.546000+00:00",
+          "received_monotonic_s": 12.545999999999964
+        }
+      ],
+      "feedback": [
+        {
+          "value": 1550,
+          "received_at": "2024-01-01T00:00:13.948000+00:00",
+          "received_monotonic_s": 13.947999999999963
+        },
+        {
+          "value": 1550,
+          "received_at": "2024-01-01T00:00:14.050000+00:00",
+          "received_monotonic_s": 14.049999999999962
+        },
+        {
+          "value": 1550,
+          "received_at": "2024-01-01T00:00:14.152000+00:00",
+          "received_monotonic_s": 14.15199999999996
+        },
+        {
+          "value": 1550,
+          "received_at": "2024-01-01T00:00:14.254000+00:00",
+          "received_monotonic_s": 14.253999999999959
+        },
+        {
+          "value": 1550,
+          "received_at": "2024-01-01T00:00:14.356000+00:00",
+          "received_monotonic_s": 14.355999999999957
+        },
+        {
+          "value": 1550,
+          "received_at": "2024-01-01T00:00:14.458000+00:00",
+          "received_monotonic_s": 14.457999999999956
+        },
+        {
+          "value": 1550,
+          "received_at": "2024-01-01T00:00:14.560000+00:00",
+          "received_monotonic_s": 14.559999999999954
+        },
+        {
+          "value": 1550,
+          "received_at": "2024-01-01T00:00:14.662000+00:00",
+          "received_monotonic_s": 14.661999999999953
+        },
+        {
+          "value": 1550,
+          "received_at": "2024-01-01T00:00:14.764000+00:00",
+          "received_monotonic_s": 14.763999999999951
+        },
+        {
+          "value": 1550,
+          "received_at": "2024-01-01T00:00:14.866000+00:00",
+          "received_monotonic_s": 14.86599999999995
+        },
+        {
+          "value": 1550,
+          "received_at": "2024-01-01T00:00:14.968000+00:00",
+          "received_monotonic_s": 14.967999999999948
+        }
+      ],
+      "error": null,
+      "start_p": 1497,
+      "motion_write_monotonic_s": 12.645999999999963,
+      "final_p": 1550,
+      "error_p": 20,
+      "final_verification": {
+        "value": 1550,
+        "received_at": "2024-01-01T00:00:15.070000+00:00",
+        "received_monotonic_s": 15.069999999999947
+      },
+      "observed_delta_p": 53,
+      "tail_span_p": 0,
+      "grip_action": "close",
+      "object_grasped": false,
+      "grasp_verified": false,
+      "meaning": "local gripper response only; load and grasp not inferred"
+    }
+  ]
+}

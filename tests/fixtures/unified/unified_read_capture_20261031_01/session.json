@@ -1,0 +1,17 @@
+{
+  "source": "HARDWARE",
+  "entered": true,
+  "closed": true,
+  "faulted": false,
+  "cancel_requested": false,
+  "planned_count": 0,
+  "consumed_count": 0,
+  "remaining_count": 0,
+  "motion_attempts": 0,
+  "response_observation_s": 0.0,
+  "response_poll_interval_s": 0.1,
+  "logging_errors": [],
+  "physical_stop_verified": false,
+  "planned_moves": [],
+  "actions": []
+}

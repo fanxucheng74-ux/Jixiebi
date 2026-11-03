@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "review_id": "SIM_ONLY_timed_put_regrasp_02",
+  "whole_path_reviewed_for_motion": false,
+  "evidence": "SIMULATION TEST FIXTURE: no physical path review or motion authorization.",
+  "start_intervals_p": [
+    [
+      1490,
+      1510
+    ],
+    [
+      1482,
+      1502
+    ],
+    [
+      1498,
+      1518
+    ],
+    [
+      1490,
+      1510
+    ],
+    [
+      1529,
+      1539
+    ],
+    [
+      1532,
+      1542
+    ]
+  ],
+  "observation_bounds_p": [
+    [
+      1485,
+      1515
+    ],
+    [
+      1110,
+      1520
+    ],
+    [
+      1470,
+      1840
+    ],
+    [
+      1000,
+      2040
+    ],
+    [
+      1519,
+      1549
+    ],
+    [
+      1180,
+      1600
+    ]
+  ],
+  "phases": [
+    {
+      "name": "lean_shoulder",
+      "duration_ms": 2500,
+      "dwell_ms": 0,
+      "targets": [
+        {
+          "servo_id": 1,
+          "target_p": 1152,
+          "end_tolerance_p": 20
+        }
+      ]
+    },
+    {
+      "name": "fold_wrist",
+      "duration_ms": 2000,
+      "dwell_ms": 0,
+      "targets": [
+        {
+          "servo_id": 3,
+          "target_p": 1995,
+          "end_tolerance_p": 35
+        }
+      ]
+    },
+    {
+      "name": "descend",
+      "duration_ms": 2500,
+      "dwell_ms": 0,
+      "targets": [
+        {
+          "servo_id": 2,
+          "target_p": 1805,
+          "end_tolerance_p": 35
+        },
+        {
+          "servo_id": 3,
+          "target_p": 1050,
+          "end_tolerance_p": 35
+        }
+      ]
+    },
+    {
+      "name": "release",
+      "duration_ms": 1500,
+      "dwell_ms": 200,
+      "targets": [
+        {
+          "servo_id": 5,
+          "target_p": 1200,
+          "end_tolerance_p": 35
+        }
+      ]
+    },
+    {
+      "name": "regrasp",
+      "duration_ms": 1500,
+      "dwell_ms": 200,
+      "targets": [
+        {
+          "servo_id": 5,
+          "target_p": 1570,
+          "end_tolerance_p": 80
+        }
+      ]
+    },
+    {
+      "name": "raise_wrist",
+      "duration_ms": 3000,
+      "dwell_ms": 500,
+      "targets": [
+        {
+          "servo_id": 3,
+          "target_p": 1995,
+          "end_tolerance_p": 35
+        }
+      ]
+    },
+    {
+      "name": "retract_elbow",
+      "duration_ms": 2000,
+      "dwell_ms": 0,
+      "targets": [
+        {
+          "servo_id": 2,
+          "target_p": 1503,
+          "end_tolerance_p": 35
+        }
+      ]
+    },
+    {
+      "name": "return_upright",
+      "duration_ms": 2500,
+      "dwell_ms": 0,
+      "targets": [
+        {
+          "servo_id": 1,
+          "target_p": 1497,
+          "end_tolerance_p": 20
+        },
+        {
+          "servo_id": 2,
+          "target_p": 1503,
+          "end_tolerance_p": 20
+        },
+        {
+          "servo_id": 3,
+          "target_p": 1496,
+          "end_tolerance_p": 35
+        }
+      ]
+    }
+  ],
+  "deadline_ms": 20000,
+  "geometry_mm": {
+    "base_height_mm": 100,
+    "upper_arm_mm": 105,
+    "forearm_mm": 75,
+    "tool_mm": 180
+  }
+}

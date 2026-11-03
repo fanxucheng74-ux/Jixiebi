@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "poses": [
+    {
+      "name": "sim_a",
+      "positions_p": [
+        1506,
+        1501,
+        1493,
+        1493,
+        1490,
+        1514
+      ],
+      "source": "HARDWARE",
+      "captured_at": "2024-01-01T00:00:01.348000+00:00",
+      "verified": false
+    },
+    {
+      "name": "sim_b",
+      "positions_p": [
+        1506,
+        1501,
+        1493,
+        1493,
+        1533,
+        1514
+      ],
+      "source": "HARDWARE",
+      "captured_at": "2024-01-01T00:00:05.768000+00:00",
+      "verified": false
+    },
+    {
+      "name": "sim_c",
+      "positions_p": [
+        1506,
+        1501,
+        1493,
+        1493,
+        1495,
+        1550
+      ],
+      "source": "HARDWARE",
+      "captured_at": "2024-01-01T00:00:16.056000+00:00",
+      "verified": false
+    }
+  ]
+}

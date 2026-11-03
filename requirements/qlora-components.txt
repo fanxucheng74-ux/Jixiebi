@@ -1,0 +1,6 @@
+# Separate WSL training environment only; not the arm project's .venv.
+-c training-constraints.txt
+-r tokenizer-training.txt
+peft==0.18.0
+accelerate==1.15.0
+bitsandbytes==0.49.2

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "source": "OFFLINE_ASSUMED",
+  "physical_target_verified": false,
+  "max_step_p": 20,
+  "assumed_table_z_mm": 0,
+  "centerline_margin_mm": 15,
+  "view_strategy": "work_area_closeup_and_staged_body_review",
+  "stages": [
+    {"name": "clearance", "pose": {"x_mm": 0, "y_mm": 250, "z_mm": 400, "pitch_deg": 30}},
+    {"name": "approach", "pose": {"x_mm": 0, "y_mm": 250, "z_mm": 150, "pitch_deg": -45}},
+    {"name": "descend", "pose": {"x_mm": 0, "y_mm": 250, "z_mm": 80, "pitch_deg": -45}},
+    {"name": "lift", "pose": {"x_mm": 0, "y_mm": 250, "z_mm": 150, "pitch_deg": -45}}
+  ]
+}

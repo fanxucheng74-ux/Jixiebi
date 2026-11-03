@@ -1,0 +1,4 @@
+# Install only into the separate WSL training environment, not the arm .venv.
+transformers==4.57.6
+sentencepiece
+jinja2>=3.1.0,<4

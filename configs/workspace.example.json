@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "image_size_wh": [640, 480],
+  "pixel_space": "RAW_PIXELS",
+  "roi_polygon_px": [],
+  "min_area_px2": 300,
+  "max_area_px2": 20000,
+  "max_aspect_ratio": 3.0,
+  "plane_mapping": null
+}

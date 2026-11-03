@@ -1,0 +1,34 @@
+# Python 环境、缓存和构建结果
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+
+# 实验数据、照片、预算、权重和本机配置
+runs/
+artifacts/
+data/raw/
+data/models/
+data/datasets/
+*.bag
+*.db3
+*.mcap
+*.safetensors
+*.pt
+*.pth
+*.onnx
+.env
+.env.*
+!.env.example
+wifi_config.py
+*.local.json
+*.pem
+*.key

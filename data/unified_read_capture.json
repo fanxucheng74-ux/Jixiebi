@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "description": "Read-only acceptance through the unified driver; poses remain unverified.",
+  "steps": [
+    {"kind": "read_state"},
+    {"kind": "capture_pose", "name": "before_unified_motion"}
+  ]
+}

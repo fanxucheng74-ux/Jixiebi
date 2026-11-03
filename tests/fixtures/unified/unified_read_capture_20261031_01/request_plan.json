@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "description": "SYNTHETIC TEST DATA ONLY",
+  "steps": [
+    {
+      "kind": "read_state"
+    },
+    {
+      "kind": "capture_pose",
+      "name": "sim_initial"
+    }
+  ]
+}

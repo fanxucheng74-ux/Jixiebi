@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "description": "Historical local command window, not a calibrated mechanical limit.",
+  "joints": [
+    {"servo_id": 0, "motion_enabled": true, "min_p": 1505, "max_p": 1555, "max_step_p": 50, "min_duration_ms": 1500, "max_duration_ms": 5000},
+    {"servo_id": 1, "motion_enabled": false},
+    {"servo_id": 2, "motion_enabled": false},
+    {"servo_id": 3, "motion_enabled": false},
+    {"servo_id": 4, "motion_enabled": false},
+    {"servo_id": 5, "motion_enabled": false}
+  ]
+}

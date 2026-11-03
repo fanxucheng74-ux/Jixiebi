@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "source": "VENDOR_NOMINAL_UNMEASURED",
+  "vendor_archive": "J1-ESP32出厂程序-240408.zip",
+  "vendor_module": "factory/z_kinematics.py",
+  "archive_sha256": "27f9b80163dd98eaa3561cc892bd0148fb9d684e010e53cd13927f315c842f94",
+  "module_sha256": "676a1914507ba4286252c20a37e51659e2e62d64be9e7175915235dfd537fe1a",
+  "parameter_variant": "factory_constructor_170_105_75_185",
+  "geometry_mm": {
+    "base_height_mm": 170,
+    "upper_arm_mm": 105,
+    "forearm_mm": 75,
+    "tool_mm": 185
+  },
+  "nominal_angular_limits_deg": {
+    "yaw_deg": [-90, 90],
+    "shoulder_deg": [0, 180],
+    "elbow_flex_deg": [-135, 135],
+    "wrist_deg": [-90, 90]
+  },
+  "frame": "vendor_X_right_Y_forward_Z_up",
+  "endpoint": "closed_gripper_tip",
+  "grasp_center_offset_mm": null,
+  "physical_geometry_verified": false,
+  "motion_authorized": false,
+  "notes": "Constructor inputs interpreted in mm; source multiplies lengths and xyz by10 internally. Other example uses base height110. Pulse mapping270deg/2000P is nominal and not a physical calibration. Limits are algorithm bounds, not reviewed mechanical travel."
+}

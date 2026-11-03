@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!--
+  仅供离线可视化与模型学习：尺寸按厂家样例标称，未实测或校准。
+  +X 右、+Y 前、+Z 上。所有长度以米计，关节角以弧度计。
+  四关节仅对应厂家平面几何模型的 000–003，并不代表经过标定的实物角度。
+  零位为三段沿 +Y 伸直；演示直立位可设 shoulder_pitch=pi/2。
+  continuous 仅避免在无实测数据时捏造物理限位，并非允许任意旋转。
+  不含 collision、动力学、传动或控制接口，不可用于真实运动/碰撞安全判断。
+  004末端旋转与005夹爪的实际轴线和机构尚未确定，暂不建模。
+-->
+<robot name="jixiebi_nominal_visual_only">
+  <material name="base_gray"><color rgba="0.35 0.38 0.42 1"/></material>
+  <material name="arm_blue"><color rgba="0.18 0.48 0.75 1"/></material>
+  <material name="arm_light"><color rgba="0.35 0.66 0.87 1"/></material>
+  <material name="tool_orange"><color rgba="0.9 0.55 0.18 1"/></material>
+
+  <!-- 基座示意体宽度仅用于显示；170 mm 是厂家模型的标称肩轴高度。 -->
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0.085"/>
+      <geometry><box size="0.06 0.06 0.17"/></geometry>
+      <material name="base_gray"/>
+    </visual>
+  </link>
+  <link name="yaw_link"/>
+
+  <!-- 厂家 yaw 正值使 +Y 指向 +X，因此 URDF 关节值取厂家 yaw 的相反数。 -->
+  <joint name="base_yaw" type="continuous">
+    <parent link="base_link"/>
+    <child link="yaw_link"/>
+    <origin xyz="0 0 0.17" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <!-- +X 轴正转将前向 +Y 抬向 +Z；关节值是肩部相对水平仰角。 -->
+  <link name="upper_arm">
+    <visual>
+      <origin xyz="0 0.0525 0"/>
+      <geometry><box size="0.025 0.105 0.025"/></geometry>
+      <material name="arm_blue"/>
+    </visual>
+  </link>
+  <joint name="shoulder_pitch" type="continuous">
+    <parent link="yaw_link"/>
+    <child link="upper_arm"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+
+  <!-- 上臂肩肘中心距 105 mm；URDF 肘关节值取厂家 elbow_flex 的相反数。 -->
+  <link name="forearm">
+    <visual>
+      <origin xyz="0 0.0375 0"/>
+      <geometry><box size="0.022 0.075 0.022"/></geometry>
+      <material name="arm_light"/>
+    </visual>
+  </link>
+  <joint name="elbow_flex" type="continuous">
+    <parent link="upper_arm"/>
+    <child link="forearm"/>
+    <origin xyz="0 0.105 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+
+  <!-- 前臂肘腕中心距 75 mm；工具长度 185 mm 至闭合爪尖标称参考点。 -->
+  <link name="wrist">
+    <visual>
+      <origin xyz="0 0.0925 0"/>
+      <geometry><box size="0.018 0.185 0.018"/></geometry>
+      <material name="tool_orange"/>
+    </visual>
+  </link>
+  <joint name="wrist_pitch" type="continuous">
+    <parent link="forearm"/>
+    <child link="wrist"/>
+    <origin xyz="0 0.075 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+
+  <!-- tool_tip 是厂家几何的闭合爪尖参考点，不声称为实测抓取中心。 -->
+  <link name="tool_tip"/>
+  <joint name="tool_tip_fixed" type="fixed">
+    <parent link="wrist"/>
+    <child link="tool_tip"/>
+    <origin xyz="0 0.185 0" rpy="0 0 0"/>
+  </joint>
+</robot>
