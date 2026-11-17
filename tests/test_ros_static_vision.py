@@ -12,9 +12,10 @@ import cv2
 import numpy as np
 
 
+# 归档旧Python视觉节点的离线测试仍保留，不需要相机或当前C++节点。
 NODE_PATH = (
     Path(__file__).resolve().parents[1]
-    / "ros2_ws/src/jixiebi_vision/jixiebi_vision/static_image.py"
+    / "legacy/ros2_ws/src/jixiebi_vision/jixiebi_vision/static_image.py"
 )
 
 

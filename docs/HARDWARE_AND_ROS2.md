@@ -1,5 +1,7 @@
 # 硬件连接与 ROS 2 入门
 
+本页保留旧Python节点用法。当前rclcpp主线见[第六课](learning/CPP_LESSON06_ROS_PUBLISHER.md)，统一上板见[部署指南](learning/RK_DEPLOYMENT.md)。不要同时启动新旧串口所有者。
+
 本页将实物连接、只读查询与运动分开。若尚未确认接线、总线供电和电平，请先对照设备厂商文档；不要依据通用示意图猜测插针或电压。
 
 ## 硬件连接原则
@@ -36,7 +38,7 @@ python -m arm_project.cli.read_arm_state --port /dev/ttyUSB0
 # 首次构建：将当前目录记录为项目根。
 export ARM_PROJECT_ROOT="$PWD"
 source /opt/ros/jazzy/setup.bash
-cd "$ARM_PROJECT_ROOT/ros2_ws"
+cd "$ARM_PROJECT_ROOT/legacy/ros2_ws"
 colcon build --packages-select jixiebi_driver
 source install/setup.bash
 

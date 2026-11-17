@@ -13,7 +13,8 @@ from test_fixed_transfer import request
 
 
 ROOT = Path(__file__).resolve().parents[1]
-NODE_PATH = ROOT / "ros2_ws/src/jixiebi_driver/jixiebi_driver/transfer_preview.py"
+# 文件移动到历史区；合成输入、断言及ROS替身保持不变。
+NODE_PATH = ROOT / "legacy/ros2_ws/src/jixiebi_driver/jixiebi_driver/transfer_preview.py"
 
 
 class FakePublisher:

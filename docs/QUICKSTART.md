@@ -1,5 +1,7 @@
 # 不接硬件：安装与离线快速开始
 
+本页属于保留兼容的Python基线。当前C/C++学习从[课程1](learning/C_LESSON01_QUERY.md)开始，分类见[文档索引](README.md)。
+
 本页命令在项目仓库根目录执行，只解析示例计划，不打开串口或摄像头。项目声明需要 Python 3.12+；公开版目前已用 Windows Python 3.14 验证安装及离线测试，其他平台和版本的完整复现尚待验证。联网安装依赖只下载软件包，不会自动控制机械臂。
 
 ## Windows PowerShell
@@ -42,6 +44,7 @@ python3.12 -m venv .venv
 <python> -m ruff check src tests tools
 <python> -m ruff format --check src tests tools
 <python> -m unittest discover -s tests -v
+<python> tools/verify_project.py
 ```
 
 这些是项目源码的常规离线检查。某些本机历史验收还检查私有实验记录、迁移哈希和硬件记录；发布包若不包含这些资料，不能把它们算作公开检出已验证通过。测试发现缺少 fixture 或平台依赖时，请保留完整报错并查阅仓库的 CI 配置，勿将失败改写为通过。

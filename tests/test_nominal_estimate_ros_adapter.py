@@ -14,9 +14,10 @@ from unittest.mock import patch
 BOOT_ID = "a3c01061-3e90-4c40-a770-bade891e01cd"
 SESSION_ID = "14dd54ab4e3e474c868897a45ac4358a"
 START = datetime(2026, 11, 3, 5, 30, 22, tzinfo=timezone.utc)
+# 历史Python适配已归档；测试继续读取同一实现，不替换为当前C++主线节点。
 ADAPTER_PATH = (
     Path(__file__).resolve().parents[1]
-    / "ros2_ws/src/jixiebi_driver/jixiebi_driver/nominal_estimate.py"
+    / "legacy/ros2_ws/src/jixiebi_driver/jixiebi_driver/nominal_estimate.py"
 )
 
 

@@ -5,7 +5,8 @@ import argparse
 from runpy import run_path
 from arm_project.paths import PROJECT_ROOT
 
-connect_wifi = run_path(str(PROJECT_ROOT / "firmware/esp32/wifi_link.py"))["connect_wifi"]
+# 为旧Python入口保留兼容：函数已归档到legacy，模拟行为和导入接口不变。
+connect_wifi = run_path(str(PROJECT_ROOT / "legacy/firmware/esp32/wifi_link.py"))["connect_wifi"]
 
 
 class FakeClock:

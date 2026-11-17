@@ -4,11 +4,11 @@
 
 ## 代码组织与检查
 
-项目 Python 代码放 `src/arm_project`，CLI 放 `src/arm_project/cli`，自动化测试放 `tests`，维护工具放 `tools`，ROS 包放 `ros2_ws/src`。文档用中文解释边界、单位和使用条件；Python 用 `#` 注释，C/C++ 用对应语言的注释。
+当前主线C协议/C++驱动放 `native`，ROS消息/节点放 `ros2_ws/src` 的两个新包，课程放 `docs/learning`。旧ROS和ESP32代码在 `legacy`；Python基线为兼容保留 `src/arm_project`，测试放 `tests`，原生/PTY测试放 `native/tests`，工具放 `tools`。文档用中文解释边界、单位和执行位置。
 
 从[离线快速开始](docs/QUICKSTART.md)安装开发依赖并运行 Ruff 与离线测试。默认测试不得打开串口、相机或发送动作；测试替身、仿真和实物结果必须分别报告。实际行为或接口发生变化时同步修改测试和相关文档。
 
-公开仓库的CI逐项运行格式、依赖、全部离线测试与默认离线示例。`tools/verify_project.py`还包含作者本机历史证据完整性审计，所需原始记录没有公开，普通克隆不使用该入口作为安装或复现检查；请按快速开始或CI命令验证公开内容。
+公开仓库可直接运行 `python tools/verify_project.py`，默认检查Ruff、格式、依赖、全部Python离线测试、默认dry-run和文档链接，并明确标记私有证据未执行。只有另备作者私有资料并显式使用 `--private-evidence` 才审计原始证据，缺数据必须失败。Linux/WSL另运行 `bash tools/check_native.sh`；ROS＋PTY检查需加载ROS及生成的接口，分别报告，不以Python检查替代。
 
 ## 提交前检查
 

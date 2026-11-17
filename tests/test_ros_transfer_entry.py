@@ -12,7 +12,8 @@ from unittest.mock import patch
 
 
 ROOT = Path(__file__).resolve().parents[1]
-NODE_PATH = ROOT / "ros2_ws/src/jixiebi_driver/jixiebi_driver/transfer_entry_preview.py"
+# 保持测试对象为历史Python入口，迁移只调整位置，不改变测试行为。
+NODE_PATH = ROOT / "legacy/ros2_ws/src/jixiebi_driver/jixiebi_driver/transfer_entry_preview.py"
 BOOT = "8befb5b8-248c-4c14-a672-942590920b65"
 
 

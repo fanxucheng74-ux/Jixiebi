@@ -4,7 +4,8 @@ from runpy import run_path
 from arm_project.paths import PROJECT_ROOT
 from arm_project.cli.wifi_pc_demo import FakeClock, FakeNetwork
 
-connect_wifi = run_path(str(PROJECT_ROOT / "firmware/esp32/wifi_link.py"))["connect_wifi"]
+# ESP32方向已归档；继续测试原连接逻辑，不连接无线设备。
+connect_wifi = run_path(str(PROJECT_ROOT / "legacy/firmware/esp32/wifi_link.py"))["connect_wifi"]
 
 
 class WifiLogicTests(unittest.TestCase):

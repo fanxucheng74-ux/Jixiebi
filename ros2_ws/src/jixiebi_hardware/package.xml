@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>jixiebi_hardware</name>
+  <version>0.1.0</version>
+  <description>Read-only C++ ROS 2 adapter for the existing Jixiebi native driver</description>
+  <maintainer email="maintainer@example.invalid">Jixiebi maintainers</maintainer>
+  <license>MIT</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclcpp</depend>
+  <depend>rcl_interfaces</depend>
+  <depend>jixiebi_interfaces</depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

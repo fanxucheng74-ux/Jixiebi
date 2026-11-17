@@ -12,7 +12,8 @@ from unittest.mock import patch
 
 
 ROOT = Path(__file__).resolve().parents[1]
-NODE_PATH = ROOT / "ros2_ws/src/jixiebi_driver/jixiebi_driver/transfer_task.py"
+# 归档后仍用原ROS桩验证旧任务入口，不触发实物或新主线节点。
+NODE_PATH = ROOT / "legacy/ros2_ws/src/jixiebi_driver/jixiebi_driver/transfer_task.py"
 EVENTS = []
 
 

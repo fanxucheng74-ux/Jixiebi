@@ -10,7 +10,8 @@ from arm_project.kinematics import Geometry, Joints, forward
 from arm_project.paths import PROJECT_ROOT
 
 
-URDF = PROJECT_ROOT / "ros2_ws/src/jixiebi_description/urdf/arm_nominal.urdf"
+# 仅核对归档标称模型，不把该模型当成新主线已完成的实物标定。
+URDF = PROJECT_ROOT / "legacy/ros2_ws/src/jixiebi_description/urdf/arm_nominal.urdf"
 PARAMS = PROJECT_ROOT / "configs/kinematics.vendor_nominal.json"
 
 

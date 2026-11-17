@@ -1,0 +1,55 @@
+name: Native and ROS offline checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  native:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: C boundaries and C++ PTY integration
+        # 脚本只编译纯C和只读CLI，再连接测试创建的伪终端，不接物理设备。
+        run: bash tools/check_native.sh
+      - name: Learning bundle source and path checks
+        run: python3 -m unittest discover -s tests -p test_learning_bundle.py -v
+
+  ros:
+    runs-on: ubuntu-24.04
+    container: ros:jazzy-ros-base
+    env:
+      CMAKE_BUILD_PARALLEL_LEVEL: '1'
+      ROS_LOCALHOST_ONLY: '1'
+      ROS_LOG_DIR: ${{ github.workspace }}/artifacts/ci_ros_logs
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ROS build dependencies
+        # 官方ROS镜像内安装构建工具，不连接任何真实板卡。
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends \
+            build-essential python3-colcon-common-extensions \
+            ros-jazzy-rosidl-default-generators
+      - name: Build raw interfaces and native adapter
+        run: |
+          source /opt/ros/jazzy/setup.bash
+          mkdir -p "$ROS_LOG_DIR"
+          colcon --log-base artifacts/ci_ros_colcon build \
+            --base-paths ros2_ws/src/jixiebi_interfaces ros2_ws/src/jixiebi_hardware \
+            --build-base ros2_ws/build --install-base ros2_ws/install \
+            --packages-select jixiebi_interfaces jixiebi_hardware --executor sequential \
+            --cmake-args -DCMAKE_BUILD_TYPE=Release -DPython3_EXECUTABLE=/usr/bin/python3
+      - name: Subscribe to C++ state through ROS and PTY
+        # 真正运行本地ROS订阅，但串口由测试自己创建，只做模拟收发与异常检查。
+        run: |
+          source /opt/ros/jazzy/setup.bash
+          source ros2_ws/install/setup.bash
+          /usr/bin/python3 native/tests/test_ros_cpp_state_publisher.py \
+            --binary ros2_ws/install/jixiebi_hardware/lib/jixiebi_hardware/servo_state_publisher

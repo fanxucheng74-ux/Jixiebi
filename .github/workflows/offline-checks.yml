@@ -20,10 +20,12 @@ jobs:
       - name: Check installed dependencies
         run: python -m pip check
       - name: Lint
-        run: python -m ruff check src tests tools
+        run: python -m ruff check src tests tools native
       - name: Formatting
-        run: python -m ruff format --check src tests tools
+        run: python -m ruff format --check src tests tools native
       - name: Offline automated tests
         run: python -m unittest discover -s tests -v
       - name: Offline plan example
         run: python -m arm_project.cli.arm_cli --plan data/unified_read_capture.json
+      - name: Public documentation links
+        run: python -c "import tools.verify_project as v; r=v.validate_layout(); print(r); assert r['passed']"
