@@ -1,0 +1,49 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Grid
+      Enabled: true
+      Value: true
+      Plane: XY
+      Cell Size: 0.05
+      Plane Cell Count: 12
+      Reference Frame: <Fixed Frame>
+    - Class: rviz_default_plugins/TF
+      Name: TF
+      Enabled: true
+      Value: true
+      # 红 X、绿 Y、蓝 Z；名字标识这组三轴属于哪一个坐标系。
+      Show Axes: true
+      Show Names: true
+      Show Arrows: true
+      Marker Scale: 0.075
+      Frames:
+        All Enabled: true
+  Enabled: true
+  Global Options:
+    Background Color: 42; 42; 42
+    Fixed Frame: lesson11_world
+  Tools:
+    - Class: rviz_default_plugins/MoveCamera
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Name: Current View
+      # 焦点靠近底座，世界原点和工具的整个圆周都在视野内。
+      Focal Point:
+        X: 0.08
+        Y: 0.0
+        Z: 0.035
+      Distance: 0.39
+      Near Clip Distance: 0.001
+      Pitch: 0.85
+      Yaw: -1.35
+      Target Frame: <Fixed Frame>
+      Value: Orbit (rviz)
+Window Geometry:
+  Height: 680
+  Width: 1000

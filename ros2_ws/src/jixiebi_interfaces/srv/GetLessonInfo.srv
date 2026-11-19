@@ -1,0 +1,9 @@
+# 请求：要查询的课程编号，不是舵机ID，也不是运动目标。
+uint8 lesson_id
+---
+# 响应：业务上是否找到；收到响应不等于found必为true。
+bool found
+# 静态示例来源，不能冒充设备反馈或真实学习进度。
+string source
+string title
+string message

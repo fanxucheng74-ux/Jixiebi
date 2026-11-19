@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="lesson12_arm">
+  <!-- 标称尺寸取自仓库既有模型。单位为米，零姿伸向 +Y，+Z 向上。 -->
+  <xacro:property name="shoulder_height" value="0.170"/>
+  <xacro:property name="upper_length" value="0.105"/>
+  <xacro:property name="forearm_length" value="0.075"/>
+  <xacro:property name="tool_length" value="0.185"/>
+
+  <material name="slate"><color rgba="0.34 0.39 0.47 1"/></material>
+  <material name="blue"><color rgba="0.16 0.46 0.90 1"/></material>
+  <material name="green"><color rgba="0.20 0.72 0.44 1"/></material>
+  <material name="orange"><color rgba="0.96 0.49 0.12 1"/></material>
+  <material name="yellow"><color rgba="1.0 0.82 0.18 1"/></material>
+
+  <!-- 展开一次生成一根 link。连杆坐标原点在近端关节，方盒的中心在半长处。 -->
+  <xacro:macro name="rod" params="name length width material">
+    <link name="${name}">
+      <visual>
+        <origin xyz="0 ${length/2} 0"/>
+        <geometry><box size="${width} ${length} ${width}"/></geometry>
+        <material name="${material}"/>
+      </visual>
+    </link>
+  </xacro:macro>
+
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 ${shoulder_height/2}"/>
+      <geometry><cylinder radius="0.035" length="${shoulder_height}"/></geometry>
+      <material name="slate"/>
+    </visual>
+  </link>
+  <link name="yaw_link"/>
+  <xacro:rod name="upper_arm" length="${upper_length}" width="0.027" material="blue"/>
+  <xacro:rod name="forearm" length="${forearm_length}" width="0.024" material="green"/>
+  <xacro:rod name="wrist" length="${tool_length}" width="0.018" material="orange"/>
+  <!-- 黄色球心标出工具参考点；球的半径只为在 RViz2 中看清位置。 -->
+  <link name="tool_tip">
+    <visual>
+      <geometry><sphere radius="0.012"/></geometry>
+      <material name="yellow"/>
+    </visual>
+  </link>
+
+  <!-- 四个转动关节的范围、速度、力矩数值仅供本课模拟，实机限位和舵机参数需另行标定。 -->
+  <joint name="base_yaw" type="revolute">
+    <parent link="base_link"/><child link="yaw_link"/>
+    <origin xyz="0 0 ${shoulder_height}"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="${-pi/2}" upper="${pi/2}" effort="1" velocity="1"/>
+  </joint>
+  <!-- 肩轴随底座转向。在零姿绕局部 +X 正转，会将整条臂从 +Y 抬向 +Z。 -->
+  <joint name="shoulder_pitch" type="revolute">
+    <parent link="yaw_link"/><child link="upper_arm"/>
+    <origin xyz="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="${-pi/2}" upper="${pi/2}" effort="1" velocity="1"/>
+  </joint>
+  <!-- 肘关节的 origin 相对 upper_arm；沿它的 +Y 走一整根上臂才到肘轴。 -->
+  <joint name="elbow_flex" type="revolute">
+    <parent link="upper_arm"/><child link="forearm"/>
+    <origin xyz="0 ${upper_length} 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="${-pi/2}" upper="${pi/2}" effort="1" velocity="1"/>
+  </joint>
+  <joint name="wrist_pitch" type="revolute">
+    <parent link="forearm"/><child link="wrist"/>
+    <origin xyz="0 ${forearm_length} 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="${-pi/2}" upper="${pi/2}" effort="1" velocity="1"/>
+  </joint>
+  <!-- 固定关节也进入 TF 树。工具点跟随腕部，JointState 只需提供四个活动关节角。 -->
+  <joint name="tool_tip_fixed" type="fixed">
+    <parent link="wrist"/><child link="tool_tip"/>
+    <origin xyz="0 ${tool_length} 0"/>
+  </joint>
+</robot>

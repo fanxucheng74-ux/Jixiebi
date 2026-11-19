@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ARCHIVE_NAME = "jixiebi-learning.tar.gz"
 
 # 发布的是可重新构建的源码，而不是某台电脑生成的二进制或历史artifacts包。
-# 显式列出22项，新增文件不会因为目录扫描而自动混进部署包。
+# 显式列出24项，新增文件不会因为目录扫描而自动混进部署包。
 BUNDLE_FILES = (
     "native/servo_protocol/include/servo_codec.h",
     "native/servo_protocol/include/servo_receiver.h",
@@ -35,6 +35,8 @@ BUNDLE_FILES = (
     "ros2_ws/src/jixiebi_interfaces/package.xml",
     "ros2_ws/src/jixiebi_interfaces/msg/ServoStateRaw.msg",
     "ros2_ws/src/jixiebi_interfaces/msg/ServoStatesRaw.msg",
+    "ros2_ws/src/jixiebi_interfaces/srv/GetLessonInfo.srv",
+    "ros2_ws/src/jixiebi_interfaces/action/CountSteps.action",
     "ros2_ws/src/jixiebi_hardware/CMakeLists.txt",
     "ros2_ws/src/jixiebi_hardware/package.xml",
     "ros2_ws/src/jixiebi_hardware/src/servo_state_publisher.cpp",

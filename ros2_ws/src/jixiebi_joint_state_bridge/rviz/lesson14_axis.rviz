@@ -1,0 +1,48 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Grid
+      Enabled: true
+      Value: true
+      Plane: XY
+      Cell Size: 0.05
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
+    - Class: rviz_default_plugins/TF
+      Name: TF
+      Enabled: true
+      Value: true
+      # 底座反馈到来后，离地 0.170 m 的 yaw_link 红 X、绿 Y 轴随底座转，蓝 Z 轴保持朝上。
+      Show Axes: true
+      Show Names: true
+      Show Arrows: false
+      Marker Scale: 0.25
+      Frames:
+        All Enabled: true
+  Enabled: true
+  Global Options:
+    Background Color: 42; 42; 42
+    Fixed Frame: base_link
+  Tools:
+    - Class: rviz_default_plugins/MoveCamera
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Name: Current View
+      Focal Point:
+        X: 0.0
+        Y: 0.0
+        Z: 0.10
+      Distance: 0.54
+      Near Clip Distance: 0.005
+      Pitch: 0.50
+      Yaw: 0.65
+      Target Frame: <Fixed Frame>
+      Value: Orbit (rviz)
+Window Geometry:
+  Height: 720
+  Width: 1040

@@ -11,6 +11,7 @@ dist/
 ros2_ws/build/
 ros2_ws/install/
 ros2_ws/log/
+/log/
 
 # 实验数据、照片、预算、权重和本机配置
 runs/

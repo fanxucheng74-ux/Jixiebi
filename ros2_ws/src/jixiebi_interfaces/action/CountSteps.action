@@ -1,0 +1,8 @@
+# Goal：客户端要模拟多少步，服务端接受1至20步。
+uint32 total_steps
+---
+# Result：任务结束时实际完成的步数，提前取消时也保留。
+uint32 completed_steps
+---
+# Feedback：执行期间已完成多少步。每走一步，服务端发布一次。
+uint32 completed_steps

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <!-- 启动时可覆盖的初值；方块边长以米为单位。 -->
+  <arg name="color" default="green"/>
+  <arg name="side_m" default="0.025"/>
+  <arg name="with_rviz" default="true"/>
+
+  <node pkg="jixiebi_learning" exec="lesson10_marker_parameters" output="screen">
+    <param name="color" value="$(var color)"/>
+    <param name="side_m" value="$(var side_m)"/>
+  </node>
+
+  <!-- 沿用第九课相同的话题、网格和视角，便于直接比较两次发布的方块。 -->
+  <node pkg="rviz2" exec="rviz2" if="$(var with_rviz)"
+        args="-d $(find-pkg-share jixiebi_learning)/rviz/lesson09_marker.rviz"/>
+</launch>

@@ -8,6 +8,32 @@ permissions:
   contents: read
 
 jobs:
+  learning:
+    runs-on: ubuntu-24.04
+    container: ros:humble-ros-base
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PC course build and headless model dependencies
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends build-essential python3-colcon-common-extensions \
+            ros-humble-control-msgs ros-humble-kdl-parser ros-humble-orocos-kdl-vendor \
+            ros-humble-visualization-msgs ros-humble-xacro ros-humble-robot-state-publisher \
+            ros-humble-ament-cmake-gtest
+      - name: Compile Humble lessons, test the bridge and play both model trajectories
+        run: |
+          source /opt/ros/humble/setup.bash
+          cd ros2_ws
+          export CMAKE_BUILD_PARALLEL_LEVEL=2
+          colcon build --packages-up-to jixiebi_learning jixiebi_joint_state_bridge --executor sequential
+          colcon test --packages-select jixiebi_joint_state_bridge --return-code-on-test-failure
+          colcon test-result --verbose
+          source install/setup.bash
+          bash ../tools/check_model_course.sh
+
   native:
     runs-on: ubuntu-22.04
     steps:

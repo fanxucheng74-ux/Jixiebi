@@ -1,5 +1,7 @@
 # C++第六课：用rclcpp发布六轴原始状态
 
+本机发布与订阅跑通后，继续[第七课：Service 请求与响应](CPP_LESSON07_SERVICE.md)。
+
 本课接在第五课RK六轴顺序查询之后。只新增ROS薄适配，仍由同一个PositionReader调用同一read_arm_state；没有运动订阅/服务，不发送目标P/T。
 
 ## 1. 操作位置与本课边界

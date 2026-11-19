@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <!-- 默认同时打开 RViz2。只想在终端查询时可传 with_rviz:=false。 -->
+  <arg name="with_rviz" default="true"/>
+  <node pkg="jixiebi_learning" exec="lesson11_tf_broadcaster" output="screen"/>
+  <!-- TF 显示直接监听坐标变换，配置中已选定世界坐标系和观察角度。 -->
+  <node pkg="rviz2" exec="rviz2" if="$(var with_rviz)"
+        args="-d $(find-pkg-share jixiebi_learning)/rviz/lesson11_tf.rviz"/>
+</launch>

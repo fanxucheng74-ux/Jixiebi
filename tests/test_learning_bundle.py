@@ -41,7 +41,7 @@ class LearningBundleTests(unittest.TestCase):
         output = self.root / "artifacts" / "first"
         manifest = bundle.build_bundle(self.root, output)
         archive = output / bundle.ARCHIVE_NAME
-        self.assertEqual(len(manifest["files"]), 22)
+        self.assertEqual(len(manifest["files"]), 24)
         self.assertEqual(
             manifest["archive_sha256"], hashlib.sha256(archive.read_bytes()).hexdigest()
         )

@@ -1,6 +1,6 @@
 # 项目协作规则
 
-- 当前主线是native中的C协议/C++设备层和ros2_ws/src中的jixiebi_interfaces、jixiebi_hardware；课程在docs/learning。每节解释代码位置、单位、目的与PC/RK执行分工，不以大批生成代码代替理解。
+- 当前主线是 native 中的 C 协议/C++ 设备层和 ros2_ws/src 中的四个 ROS 包。开课先查 docs/learning/ARM_FACTS.md；课程位于 docs/learning。每节解释代码位置、单位、目的与 PC/RK 分工。
 - 旧ROS/模型/ESP32在legacy，Python基线保留src/arm_project导入兼容。未经明确任务不改历史业务行为，不把旧运动入口当作默认新手流程。
 - 默认测试不得打开物理串口或相机。一个串口只能有一个所有者；运动需当前状态、有限计划、参数检查和一次性预算，不覆盖日志/预算，不自动重发。
 - 协议P不是角度或毫米；驱动响应、严格到位、夹持、空间精度与物理停止分别记录，无证据标待验证。

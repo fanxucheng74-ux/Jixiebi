@@ -1,0 +1,52 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Grid
+      Enabled: true
+      Value: true
+      Plane: XY
+      Cell Size: 0.05
+      Plane Cell Count: 16
+      Reference Frame: <Fixed Frame>
+    - Class: rviz_default_plugins/RobotModel
+      Name: RobotModel
+      Enabled: true
+      Value: true
+      # 先接收完整模型，每个 link 的实时位置再由 TF 决定。
+      Description Source: Topic
+      Description Topic:
+        Value: /robot_description
+        Durability Policy: Transient Local
+        Reliability Policy: Reliable
+        History Policy: Keep Last
+        Depth: 1
+      Visual Enabled: true
+      Collision Enabled: false
+  Enabled: true
+  Global Options:
+    Background Color: 42; 42; 42
+    Fixed Frame: base_link
+  Tools:
+    - Class: rviz_default_plugins/MoveCamera
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Name: Current View
+      # 从略偏侧上方看向臂中央，能比较沿 +Y 伸出的水平姿态与沿 +Z 抬高的姿态。
+      Focal Point:
+        X: 0.0
+        Y: 0.12
+        Z: 0.23
+      Distance: 0.85
+      Near Clip Distance: 0.01
+      Pitch: 0.30
+      Yaw: 0.30
+      Target Frame: <Fixed Frame>
+      Value: Orbit (rviz)
+Window Geometry:
+  Height: 720
+  Width: 1040

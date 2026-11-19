@@ -7,6 +7,13 @@ from uuid import UUID
 from arm_project.kinematics import from_nominal_pulses
 
 
+def nominal_urdf_degrees(pulses):
+    """将 000～003 的反馈 P 换成旧模型的 URDF 标称角（度）。"""
+    nominal = from_nominal_pulses(pulses)
+    # 厂家偏航正方向从前朝右；URDF 绕 +Z 从前朝左。肘屈曲也与 URDF 局部正轴相反。
+    return -nominal.yaw_deg, nominal.shoulder_deg, -nominal.elbow_flex_deg, nominal.wrist_deg
+
+
 def _finite_number(value, name):
     if type(value) not in (int, float):
         raise ValueError(f"{name} must be a finite number")
@@ -122,13 +129,7 @@ class NominalStateBridge:
             times.append(received)
 
         # from_nominal_pulses只是厂家标称比例；URDF四轴符号还需按模型约定转换。
-        nominal = from_nominal_pulses(pulses[:4])
-        angles = (
-            -nominal.yaw_deg,
-            nominal.shoulder_deg,
-            -nominal.elbow_flex_deg,
-            nominal.wrist_deg,
-        )
+        angles = nominal_urdf_degrees(pulses[:4])
         names = ("base_yaw", "shoulder_pitch", "elbow_flex", "wrist_pitch")
         result = [
             {
